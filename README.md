@@ -4,10 +4,6 @@ This repository is used to manage and document a PHP extension\plugin which is s
 </br></br></br>
 <h3>Go to the bugs tracker to explain the issues to find:</h3>
 
-https://github.com/devEric69/SQL-database-audit-for-Opencart/issues
-
-![SQL-database-audit-for-Opencart/images/img_bugs_tracker.png](https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/img_bugs_tracker.png)
-
 <a target="_self" href="https://github.com/devEric69/SQL-database-audit-for-Opencart/issues">
     <img src="https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/img_bugs_tracker.png" alt="image bugs tracker">
 </a>
