@@ -17,6 +17,6 @@ This repository is used to manage and document a PHP extension\plugin (which is 
 <p align="center">
     Click on the image below to go towards the WIKI in order to read the help online:<br>
     <a target="_self" href="https://github.com/devEric69/SQL-database-audit-for-Opencart/wiki">
-        <img src="https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/wiki.png" alt="image wiki">
+        <img src="https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/img_ink_and_pen.png" alt="image ink and pen">
     </a>
 </p>
