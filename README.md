@@ -8,6 +8,6 @@ https://github.com/devEric69/SQL-database-audit-for-Opencart/issues
 
 ![SQL-database-audit-for-Opencart/images/img_bugs_tracker.png](https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/img_bugs_tracker.png)
 
-<a href="https://github.com/devEric69/SQL-database-audit-for-Opencart/issues">
-  <img src="https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/img_bugs_tracker.png)" alt="image bugs tracker">
+<a target="_self" href="https://github.com/devEric69/SQL-database-audit-for-Opencart/issues">
+    <img src="https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/img_bugs_tracker.png" alt="image bugs tracker">
 </a>
