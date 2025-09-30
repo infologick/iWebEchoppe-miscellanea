@@ -1,4 +1,4 @@
-<h1>SQL-database-audit-for-Opencart</h1>h1>
+<h1>SQL-database-audit-for-Opencart</h1>
 This repository is used to manage and document a PHP extension\plugin which is sold on the Opencart's (open-source and free eCommerce platform) virtual marketplace, used to perform an SQL audit of the mySQL database, in order to optimise it (checking the engine, fragmentation, referential integrity cascading changes on the mySQL server side, etc.).
 
 </br></br></br>
@@ -9,4 +9,4 @@ This repository is used to manage and document a PHP extension\plugin which is s
     <a target="_self" href="https://github.com/devEric69/SQL-database-audit-for-Opencart/issues">
         <img src="https://github.com/devEric69/SQL-database-audit-for-Opencart/blob/master/images/img_bugs_tracker.png" alt="image bugs tracker">
     </a>
-</p>p>
+</p>
