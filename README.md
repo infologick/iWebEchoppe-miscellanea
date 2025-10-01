@@ -1,6 +1,6 @@
 <h1>SQL-database-audit-for-Opencart:</h1>
 <p>
-This repository is used to manage and document an Opencart's PHP extension\plugin.
+&#09;This repository is used to manage and document an Opencart's PHP extension\plugin.
 </p>
 
 <h3>Introduction:</h3>
