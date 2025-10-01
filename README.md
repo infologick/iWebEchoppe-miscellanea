@@ -1,11 +1,11 @@
-<h1>SQL-database-audit-for-Opencart:</h1>
+<h1>mySQL-database-audit-for-Opencart:</h1>
 <p>
 This repository is used to manage and to document an Opencart's PHP extension\plugin\add-on.
 </p>
 
 <h3>Introduction:</h3>
 <p>
-Opencart is a PHP open-source and free eCommerce, embedding a virtual marketplace, where one can offer or sell extensions. «SQL-database-audit-for-Opencart» is an add-on destined to perform an SQL audit of the Opencart's mySQL database, in order to optimise it (checking the engine, fragmentation of tables, referential integrity cascading changes on the mySQL server side, etc). This digital repository Github is used to manage the bugs and the HTML documentation pages wiki, for this extension.
+Opencart is a PHP open-source and free eCommerce, embedding a virtual marketplace, where one can offer or sell extensions. «mySQL-database-audit-for-Opencart» is an add-on destined to perform an SQL audit of the Opencart's mySQL database, in order to optimise it (checking the engine, fragmentation of tables, referential integrity cascading changes on the mySQL server side, etc). This digital repository Github is used to manage the bugs and the HTML documentation pages wiki, for this extension.
 </p>
 
 <h3>Bugs tracker:</h3>
