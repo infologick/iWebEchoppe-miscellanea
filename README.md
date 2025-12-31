@@ -17,7 +17,7 @@ Click on the image below to go towards the BUGS TRACKER in order to explain the 
 </p>
 
 <h3>Wiki:</h3>
-Click on the image below to go towards the WIKI in order to read the help online:<br>
+Click on the image below to go towards the WIKI in order to read the help online (with multilingual translation):<br>
 <p align="center">
     <a target="_self" href="https://github.com/infologick/iWebEchoppe-miscellanea/wiki">
         <img src="https://github.com/infologick/iWebEchoppe-miscellanea/blob/master/images/img_ink_and_pen.png" alt="image ink and pen">
