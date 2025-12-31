@@ -13,8 +13,8 @@ var GoogleUtils = {
 	isHostRemoteWhenTrue_versus_localWhenFalse_toSwitchGoogleTranslationOnOrOff() {
 // ~~NOK: ssi forcer test en dév.~~ return true;
 		const sHostname = window.location.hostname;
-		// Vérifie si le domaine se termine par ".com"
-		const bIsComDomain = sHostname.endsWith('.com');
+		// Vérifie si le domaine se termine par ".io"
+		const bIsComDomain = sHostname.endsWith('.io');
 		// Vérifie si le domaine se termine par un @int
 		const bEndsWithInteger = /\.\d+$/.test(sHostname);
 		// Commercial…
@@ -47,3 +47,4 @@ var GoogleUtils = {
 * Go: 1. publication des interfaces aux autres!
 */
 window.GoogleUtils = GoogleUtils;
+
