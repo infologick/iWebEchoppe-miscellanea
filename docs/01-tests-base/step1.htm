@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<title>extension «iWebEchoppe miscellanea» pour Opencart: étape 1 de son module «Base des tests»</title>
+	<meta name="description" content="module «Base des tests» de l'extension «iWebEchoppe miscellanea»">
+	<meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 "/>
+	<meta http-equiv="Content-Language" content="fr" />
+	<!-- NO 'BOTS \ bon, c'est tjrs en création -->
+	<META NAME="robots" CONTENT="noindex,nofollow">
+	<meta name="googlebot" content="DIRECTIVE">
+	<!-- Styles spé-base documentaire -->
+	<link rel="stylesheet" type="text/css" href="./../a-inc-cmn-all-sites/a-css/style-bdd-documents.css">
+	<!-- CrazyStat ? -->
+	<script type="text/javascript" src="./../a-inc-cmn-all-sites/a-js/graphic-res-combined-and-shared-by-all-the-net/GoogleUtils.js" defer></script><!-- ← defer == ce script se charge “en arrière-plan”, puis s’exécute lorsque le DOM est entièrement construit. -->
+</head>
+
+
+<!-- Begin Google traduction -->
+<header>
+<div id="google_translate_element"></div>
+<!-- nb: GoogleUtils.googleTranslateElementInit ci-dessous est du JavaScript -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=GoogleUtils.googleTranslateElementInit"></script>
+</header>
+<!-- End Google traduction -->
+
+
+<body>
+
+	<blockquote>
+
+		<nav style="background-color: dimgray;"><!-- DÉBUT navigateur -->
+			<div style="text-align: center; margin: 0 auto;">
+				<a href="./../index.htm">↑ Page d'accueil de l'extension « iWebEchoppe miscellanea »</a>
+				<a href="./index.htm">← Index du module « Base des tests »</a>
+				<a href="./step2.htm">→ Étape 2 du module « Base des tests »</a>
+			</div>
+		</nav><!-- FIN navigateur -->
+
+		<br><br>
+
+		<h1>Question: comment mettre à jour une configuration générale des fichiers de configuration (*.conf.php) d'une «Base des tests» avec «iWebEchoppe miscellanea»?</h1><br>
+
+		<p>
+			Pour information, cette étape à pour but de créer de nouveaux fichiers *.conf.php par copier-coller depuis ceux présents dans le dossier */config/<span class="stabilo_blanc">default-referential</span>, si nécessaire. 
+			Cette étape va aussi vérifier si de nouvelles variables doivent être créées dans d'anciens fichiers de configuration déjà existants, du fait de nouvelles variables découvertes dans ceux ceux présents dans le dossier */config/default-referential, si nécessaire.
+		</p>
+
+		<h3>L'étape 1 concerne la récupération, voire de mise à jour, des fichiers textes de configuration déjà existant (<span class="stabilo_blanc">fichiers *.conf.php</span>)</h3><br>
+
+		
+		<p>
+			Globalement, cette étape 1 compare la valeur de la variable <span class="stabilo_blanc">iVersionSourceCodePhp</span> contenue dans <span class="stabilo_blanc">/shop/config/codes_sources.conf.php</span> 
+			par rapport à celle de la même variable iVersionSourceCodePhp du fichier /shop/config.default-referential/codes_sources_default.conf.php. 
+			Si la valeur de fichier référent est supérieure à celle de celui appliqué à votre application courante, alors les fichiers sont mis à jour <br>
+			<br>
+			<u>nb:</u> vous pouvez replacer vos anciens fichiers textes de configuration dans <span class="stabilo_blanc">/shop/config/*</span>, puis auto-poster le formulaire en restant à cette étape 1, 
+			afin de restaurer vos anciennes valeurs en ne faisant jouer la mise à jour subséquente seulement pour ajouter les éventuelles nouvelles variables présentes 
+			dans le nouveau référentiel des fichiers textes de configuration.
+			
+			<p align="center">
+				<img src="./step1Files/step1_eventGET1.png" width="68%" /><br><br>
+				<img src="./step1Files/step1_eventGET2.png" width="68%" /><br>
+				<i>Illustrations (selon différents scénarios\contextes) de la page jetée (méthode=GET) à l'étape 1</i>
+				<br><br>
+				<img src="./step1Files/step1_eventGET3.png" width="68%" /><br><br>
+				<i>A l'étape 1 (méthode=GET), un comparateur niché dans un contrôle visuel en forme de soufflets d'accrdéon, permet de visualiser les différences entre les variables des fichiers de configuration existants, et celles d'une nouvelle version de ce module</i>
+			</p>
+			
+			<!-- p align="center">
+				<img src="./step1Files/005_step1_eventPOST1_NOK.png" width="68%" />
+				<img src="./step1Files/006_step1_eventPOST2_OK.png" width="68%" />
+			</p -->
+			
+		</p>
+
+	</blockquote>
+
+<footer>
+	
+</footer>
+
+</body>
+</html>

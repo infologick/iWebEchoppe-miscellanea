@@ -55,7 +55,19 @@ nav {
 	color: black;
 	display: block;
 	padding-left: 15px;
-		border-radius: 0.25em; font-size: 2em; line-height: 25%;
+		border-radius: 0.25em; font-size: 2em; line-height: 100%;
+}
+
+/* ancre dans un navigateur */
+nav a {
+	font-family: "Rouge Script" !important;
+	font-size: xxx-large !important;
+	width: 100% !important;
+	display: block; /* Pour que le lien prenne toute la largeur et se comporte comme un bloc */
+	text-align: center; /* Pour centrer le texte comme dans le h1 */
+	margin: 0 auto; /* Pour reproduire le comportement du div parent */
+	text-decoration: none; /* Pour enlever le soulignement par défaut des liens */
+	padding-top: 15px;padding-bottom: 15px;
 }
 
 /* pied-de-page tout en bas */
