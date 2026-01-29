@@ -42,13 +42,12 @@
 		<h1>Question: comment mettre à jour une configuration générale des fichiers de configuration (*.conf.php) d'une «Base des tests» avec «iWebEchoppe miscellanea»?</h1><br>
 
 		<p>
-			Pour information, cette étape à pour but de créer de nouveaux fichiers *.conf.php par copier-coller depuis ceux présents dans le dossier */config/<span class="stabilo_blanc">default-referential</span>, si nécessaire. 
+			Pour information, cette étape a pour but de créer de nouveaux fichiers *.conf.php par copier-coller depuis ceux présents dans le dossier */config/<span class="stabilo_blanc">default-referential</span>, si nécessaire. 
 			Cette étape va aussi vérifier si de nouvelles variables doivent être créées dans d'anciens fichiers de configuration déjà existants, du fait de nouvelles variables découvertes dans ceux ceux présents dans le dossier */config/default-referential, si nécessaire.
 		</p>
 
 		<h3>L'étape 1 concerne la récupération, voire de mise à jour, des fichiers textes de configuration déjà existant (<span class="stabilo_blanc">fichiers *.conf.php</span>)</h3><br>
 
-		
 		<p>
 			Globalement, cette étape 1 compare la valeur de la variable <span class="stabilo_blanc">iVersionSourceCodePhp</span> contenue dans <span class="stabilo_blanc">/shop/config/codes_sources.conf.php</span> 
 			par rapport à celle de la même variable iVersionSourceCodePhp du fichier /shop/config.default-referential/codes_sources_default.conf.php. 
@@ -61,16 +60,19 @@
 			<p align="center">
 				<img src="./step1Files/step1_eventGET1.png" width="68%" /><br><br>
 				<img src="./step1Files/step1_eventGET2.png" width="68%" /><br>
-				<i>Illustrations (selon différents scénarios\contextes) de la page jetée (méthode=GET) à l'étape 1</i>
-				<br><br>
+				<i>Illustrations (selon différents scénarios\contextes ci-dessus) de la page jetée (méthode=GET) à l'étape 1</i>
+				<br><br><br>
 				<img src="./step1Files/step1_eventGET3.png" width="68%" /><br><br>
-				<i>A l'étape 1 (méthode=GET), un comparateur niché dans un contrôle visuel en forme de soufflets d'accordéon, permet de visualiser les différences entre les variables des fichiers de configuration existants, et celles d'une nouvelle version de ce module</i>
+				<i>À l'étape 1 (méthode=GET), illustration ci-dessus de la présence d'un comparateur de variables, comparateur niché dans un contrôle visuel en forme de soufflets d'accordéon, comparateur qui permet de visualiser les différences entre les variables des fichiers de configuration existants, avec les variables d'une éventuelle nouvelle version de ce module<br>
+				Cette étape détecte diverses configurations et liste les incohérences et les modifications qui doivent être faites pour passer à l'étape numéro 2 suivante.</i>
 			</p>
-			
-			<!-- p align="center">
-				<img src="./step1Files/005_step1_eventPOST1_NOK.png" width="68%" />
-				<img src="./step1Files/006_step1_eventPOST2_OK.png" width="68%" />
-			</p -->
+
+		<br><br>
+
+			<p align="center">
+				<img src="./step1Files/step1_eventPOST1.png" width="68%" /><br>
+				<i>À l'étape 1 (méthode=POST), illustration ci-dessus des mises à jour faites avec succès, par la moulinette de la montée de version des fichiers depuis la configuration actuellement appliquée vers la version du référentiel par défaut, référentiel installé ou mis à jour avec l'installation ou la mise à jour de cette extension.
+			</p>
 			
 		</p>
 
