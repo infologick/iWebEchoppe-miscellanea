@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+		<title>extension «iWebEchoppe miscellanea» pour Opencart: étape 1 de son module «Base des tests»</title>
+		<meta name="description" content="module «Base des tests» de l'extension «iWebEchoppe miscellanea»">
+		<meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 "/>
+		<meta http-equiv="Content-Language" content="fr" />
+		<!-- NO 'BOTS \ bon, c'est tjrs en création -->
+		<META NAME="robots" CONTENT="noindex,nofollow">
+		<meta name="googlebot" content="DIRECTIVE">
+		<!-- Styles spé-base documentaire -->
+		<link rel="stylesheet" type="text/css" href="./../a-inc-cmn-all-sites/a-css/style-bdd-documents.css">
+		<!-- CrazyStat ? -->
+		<script type="text/javascript" src="./../a-inc-cmn-all-sites/a-js/graphic-res-combined-and-shared-by-all-the-net/GoogleUtils.js" defer></script><!-- ← defer == ce script se charge “en arrière-plan”, puis s’exécute lorsque le DOM est entièrement construit. -->
+	</head>
+
+<!-- Begin Google traduction -->
+<header>
+<div id="google_translate_element"></div>
+<!-- nb: GoogleUtils.googleTranslateElementInit ci-dessous est du JavaScript -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=GoogleUtils.googleTranslateElementInit"></script>
+</header>
+<!-- End Google traduction -->
+
+	<body>
+	<header></header>
+
+<br><br><br>
+<h1>Aide pour résoudre des problèmes de permissions\droits.</h1>
+
+
+
+<br><br><br>
+<h3>Introduction:</h3>
+<br>
+Des permissions\privilèges sont donnés aux listes de cntrôle d'accès dites "ACL" via des droits dits "ugo", droits pouvant\devant être ajoutés à l'arborescence émergée des répertoires et fichiers d'un site web, selon la fonction d'utilisté des fichiers. 
+Certains fichiers sont des programmes et s'exécutent, tandis que d'autres fichiers se lisent seulement, si tant est que ces dits fichiers ont déjà été créé sur la machine considérée. 
+La pose de droits sous Linux n'est pas un concept simple, immédiat. Ce document tente de résumé son étude par Ugo.
+
+
+
+<br><br><br>
+<h3>Mnémotechnie: Ugo est mon ami pour m'aider à attribuer des droits!</h3>
+<br>
+Dans la logique "ugo", chaque lettre rerésente un groupe (il y en a 3) et signifie:<br>
+- l'administrateur du site doit être <b>u</b>, celui qui est en train de créer\à créé de façon <u>u</u>nique la sujetion étudiéee (un dossier, un fichier).<br>
+- <b>g</b> doit être le groupe-logiciel. Par exemple, "www-data" est le célèbre nom du groupe qui informe que c'est un dossier ou un fichier utilisé par le logiciel Apache (un serveur HTTP).<br>
+- <b>o</b> sont les internautes, "les autres de l'internet" qui ne sont ni dans "u", ni dans "g".<br>
+
+
+
+<br><br><br>
+<h3>Chaque droit accordé à l''un des 3 groupes mis sur un dossier ou un fichier, est accordé avec un poids:</h3>
+<br>
+En politique des droits (permissions) sur les fichiers et dossiers sous Linux, le chiffre 7 maximum affectable est obtenu en additionnant les valeurs des permissions de base attribuées à un utilisateur, un groupe-locgiciel ou les autres de l'internet. 
+Voici les valeurs des permissions de base:<br>
+- Lecture (r): 4<br>
+- Écriture (w): 2<br>
+- Exécution (x): 1<br>
+<br>
+<b>nb</b>: affecter\descendre au nombre 4 les droits d'un dossier ou d'un fichier pour le compte <b>u</b>, revient souvent à s'exposer\s'auto-loquer\se verrouiller sur une machine où l'on a pas le rôle admin.-root-Linux', 
+car la navigation seule au sein des dossiers demande ce 4. Donc, en web, les affectations commencent tout le temps à 600 (jamais à 400).
+
+
+
+<br><br><br>
+<h3>D'après "Ugo", sur qui, comment et sur quoi attribuer des droits?</h3>
+<br>
+<u>Pré-requis:</u><br>
+- l'administrateur du site (celui qui se connecte via FTP) s'appelle mettons <i>Jean</i>.<br>
+- pour information, beaucoup d'hébergeurs mettent à disposition des outils de transfert de fichiers qui font le même travail que FileZilla (outil le plus connu pour transférer et gérer des droits sur des dossiers\fichiers). 
+Ainsi, IK&ast; conseille de le faire avec l'outil FTP manager, et donc tout peut se faire avec IK-FTP gestionnaire\manager. 
+De même OVH&ast; propose dans sa console d'administration, un onglet FTP-SSH (SSH = session putTy i.e. connexion à une machine lointaine comme si l'on était devant elle et où l'on peut y lancer des commandes en mode bash du shell, 
+e.g. telnet sous MS-Windows) où l'on peut cliquer sur un lien menant vers le gestionnaire\gestionnaire\manager de fichiers. Etc&ast;.<br>
+- la cmd Linux <span class="stabilo_noir">chgmod</span> s'applique selon sa cible, sa cible étant un répertoire (de façon récursive ou pas) précis, ou un fichier précis. 
+Si l'on doit lancer beaucoup de <span class="stabilo_noir">chgmod</span>, il est plus facile de l'utiliser avec un pipelinage bash comme: <span class="stabilo_noir">find {files|directoies} + exec chgmod</span>.<br>
+<br>
+Il convient de faire, dans l'ordre:<br>
+→ changer le user-owner sur toute l'arborescence émergée, comme étant l'administrateur physique (appelé Jean) i.e. lancer un <span class="stabilo_noir">chown -R Jean /web</span>, 
+i.e. seul Jean connecté peut utiliser les privilèges du <u>u</u>.<br>
+→ modifier l'ACL de /web (de façon récursive) en ajoutant le groupe de la suite logicielle Apache (appelé www-data, du point de vue des droits UGO) comme pouvant avoir un accès utile sur l'arborescence /web, donc 
+lancer <span class="stabilo_noir">chgrp -R www-data /web</span> (/web se voit ajouter www-data dans ses listes de groupes i.e. dans ses listes de <u>g</u>; 
+pour info., seul www-data sera dans cette liste du <u>g</u> de /web).<br>
+→ maintenant, à savoir seulement si u=Jean, g=www-data, et les others = les internautes derrière leur navigateurs sont clairement définis, on peut définir pour chacun leur valeur octale 
+qui est une combinaison de read (=4 points) + write (= 2 points) + eXecution(=1point). Globalement, cela se fait en 3 passages, en commençant de la tolérance minimale vers la tolérance maximale:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;• définir les droits ugo pour les utilisations respectives des <span class="stabilo_orange"><u> répertoires </u></span> émergés 
+(utilisation des répertoires sur un site web = généralement la visibilité, la navigabilité, le listage): 
+les tolérances (sur les répertoire) allant de la plus petite à la plus grande sont: <span class="stabilo_noir"><s>chgmod -R 555</s></span><s> --nok--, car avec possibilité de s'auto-exclure et de devoir faire appel à un super-user-root que l'on est pas chez IK</s>, 
+<span class="stabilo_noir">find /web -type d -exec chmod 750 {} +</span>, 
+<span class="stabilo_noir">find /web -type d -exec chmod 755 {} +</span>.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;• définir les droits ugo pour les utilisations respectives des <span class="stabilo_orange"><u> fichiers </u></span> émergées (utilisation des répertoires sur un site web = généralement la visibilté, 
+la navigabilité, le listage): 
+<span class="stabilo_noir">find /web -type f -exec chmod 640 {} +</span>, 
+<span class="stabilo_noir">find /web -type f -exec chmod 644 {} +</span>, 
+<span class="stabilo_noir"><s>chgmod -R 444</s></span><s> --nok--, car possibilité de "s'auto-locker" soi-même et de devoir appeler au secours un super-root que l'on est pas chez IK</s>.<br>
+Les fichiers sensibles, que l'on souhaite soustraire à la lecture d'un internaute, devraient être attribués de droits <span class="stabilo_noir">chmod 640</span> à <span class="stabilo_noir">chmod 600</span>: 
+dit autrement, il devraient se terminer en <span class="stabilo_noir"><u>0</u></span> ou les others.<br>
+Pour rappel, le fichier dit de la "base de données mySQL" est localisé ailleurs, généralement sous <span class="stabilo_gris">/var/...</span>, i.e. à un emplacement où l'on a aucun droit d'accès: 
+bref, on ne s'y occupe que de droits CRUD pour l'admin (=~<b>u</b>) et pour les autres-others (=~<b>o</b>).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;• les scripts CGI\fast-CGI doivent avec le bit eXecution valant 1. 
+Donc, il faut lancer de la plus petite tolérance à la plus grande, sans utiliser là 
+de récursivité: <span class="stabilo_noir">chmod 750 public_html/cgi-bin</span> sur le rép., puis <span class="stabilo_noir">chmod 750 public_html/cgi-bin/your-script.elf</span> sur l'*.elf, 
+<span class="stabilo_noir">chmod 750 public_html/cgi-bin</span> sur le rép., puis <span class="stabilo_noir">chmod 755 public_html/cgi-bin/your-script.elf</span> sur l'*.elf, puis 
+<span class="stabilo_noir">chmod 755 public_html/cgi-bin</span> sur le rép., puis <span class="stabilo_noir">chmod 750 public_html/cgi-bin/your-script.elf</span> sur l'*.elf, ou alors 
+<span class="stabilo_noir">chmod 755 public_html/cgi-bin</span> sur le rép., puis tester avec <span class="stabilo_noir">chmod 755 public_html/cgi-bin/your-script.elf</span> sur l'*.elf s'il le faut.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;• il convient de lancer une dernière commande pour dire aux "<u>s</u>ub-directories" du rép. /web, d'hériter leurs droits par copier-coller de celui de leur rép. parent e.g. le rép. /web même: 
+<span class="stabilo_noir">chmod g+s /web</span>.
+
+
+
+<br><br><br>
+<h3>À savoir:</h3>
+Sous Linux, une ACL (acronyme qui signifie Liste des Contrôles d'Accès) signifie une combinaison "ugo". Sous Linux, un dossier ou un fichier ne peut appartenir qu'à un seul nom de groupe ("g") d'une part, 
+et d'autre part un dossier ou un fichier ne peut appartenir qu'à une seule combinaison de droits d'accès (ugo) à la fois. 
+Dit autrement un dossier ou un fichier ne peut appartenir qu'à une seule ACL. C'est LA grosse différence avec MS-Windows, par exemple!
+
+
+
+<br><br><br>
+		<label id="REFERENCES" style="font-size: small;">&ast;
+			[1]: IK=InfoManiak; OVH="On Vous Héberge", cgiwebhost=hébergement de fichiers *.cgi <b>compilés</b> permis, etc = d'autres hébergeurs<br>
+		</label>
+		<aside></aside>
+		<footer></footer>
+	</body>
+</html>

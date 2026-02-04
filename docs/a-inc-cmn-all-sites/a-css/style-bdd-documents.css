@@ -54,7 +54,8 @@ nav {
 	background-color: dimgray !important;
 	color: black;
 	display: block;
-	padding-left: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
 		border-radius: 0.25em; font-size: 2em; line-height: 100%;
 }
 
