@@ -86,7 +86,7 @@ chmod u+w /chemin/parent/  # Ajoutez les droits d'écriture si nécessaire</code
 <fieldset>
 	● <a name="ln"></a><code>ln &lt;destination&gt; &lt;link_name&gt;</code>
 
-	Cette commande sert à créé un lien (<i>un fichier Link</i>) d'un endroit vers un dossier ou un fichier <code>destination</code> placé ailleurs. 
+	Cette commande sert à créer un lien (<i>un fichier de type "link"</i>) d'un endroit source, vers un dossier ou vers un fichier destination placé ailleurs. 
 	Cela permet d'économiser l'espace du disque en économisant les copiés-collés des dossiers ou fichiers.<br>
 	<br>
 	<u>Pour créer un raccourci:</u><br>
@@ -96,7 +96,7 @@ chmod u+w /chemin/parent/  # Ajoutez les droits d'écriture si nécessaire</code
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↙--------------------------------------------↖
 	<pre><code><span class="stabilo_gris">ln -sf </span><span class="stabilo_orange">/nom_du_fichier_ou_chemin_du_dossier_qui_est_cible_reelle_à_créer</span> <span class="stabilo_jaune">nom_du_fichier_raccourci_source_dans_ce_dossier_courant_menant_vers_sa_cible</span></code></pre><br>
 	</pre>
-	- le paramètre <code>-s</code>: il demande à créé un lien "symbolique" ("soft"). nb: il existe aussi de liens "hard", hors-sujet ici.<br>
+	- le paramètre <code>-s</code>: il demande à créer un lien "symbolique" ("soft"). nb: il existe aussi de liens "hard", hors-sujet ici.<br>
 	- le paramètre <code>-f</code>: il indique de créer forçant la création, c'est-à-dire de re-créer ledit lien et ce, même s'il existe déjà (utile pour mettre à jour un lien existant sans erreur, de façon inquète).<br>
 	- le paramètre <code>-sf</code>: il demande à créer en utilisant la combinaison des deux paramètres unaires précédents.<br>
 	
@@ -135,7 +135,7 @@ chmod u+w /chemin/parent/  # Ajoutez les droits d'écriture si nécessaire</code
 		
 		&nbsp;&nbsp;&nbsp;&nbsp;• le "soft link" est la même chose qu'un raccourci MS-Windows c'est-à-dire un fichier menant directement vers un fichier ou un répertoire. 
 		Si on supprime le fichier pointé par un soft link, le "soft link est cassé ("If the real copy is deleted, the link will not work: simple!").<br>
-		&nbsp;&nbsp;&nbsp;&nbsp;• le "hard link" se fait aussi avec la commande...:<br><pre class="LC">$ ln </pre>..., mais sans commutateur ("Hard links" are for *files* only!"). 
+		&nbsp;&nbsp;&nbsp;&nbsp;• le "hard link" se fait aussi avec la commande...:<br><pre class="LC"><code>$ ln </code></pre>..., mais sans commutateur ("Hard links" are for *files* only!"). 
 		<span class="stabilo_rouge">Ces liens durs (lien "hard") qui se basent sur l'inode, sont hors-sujet ici.</span><br>
 	</fieldset>
 
