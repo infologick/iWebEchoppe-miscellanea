@@ -65,17 +65,18 @@
 
 		<p><b>Étapes à suivre:</b></p>
 		<ol>
-			<li>Changer le propriétaire (<code>chown -R Jean /web</code>).</li>
-			<li>Modifier le groupe (<code>chgrp -R www-data /web</code>).</li>
-			<li>Définir les permissions pour <b>u</b>, <b>g</b>, et <b>o</b>.</li>
+			<li>Changer le propriétaire (<code>chown -R Jean /web</code>). Cette commande change le "user" propriétaire sur toute l'arborescence émergée concernée, comme étant l'administrateur physique (ici, appelé Jean). Seul Jean, connecté, peut utiliser les privilèges du u.</li>
+			<li>Modifier le groupe (<code>chgrp -R www-data /web</code>). Avec cette commande, le dossier <span class="stabilo_gris">"/web</span> se voit ajouter ""www-data" (c'est le nom donné au logiciel Apache) dans ses listes de groupes, 
+				i.e. dans ses listes de <b>g</b>. Ainsi, seul www-data sera dans cette liste du g de /web</li>
+			<li>Définir les permissions pour <b>u</b>, pour <b>g</b>, et pour <b>o</b> (o sont les others, les autres de l'internet, c'est-à-dire les internautes derrière leur navigateurs). On doit définir pour chacun leur valeur octale qui est une combinaison de read (=4 points) + write (= 2 points) + eXecution(=1point).</li>
 		</ol>
 
 		<br><br>
 		<h4>&#9989; Bonnes pratiques pour les répertoires:</h4>
 		<p>Permissions recommandées pour les répertoires (navigation, listage):</p>
 		<ul>
-			<li><span class="stabilo_noir">find /web -type d -exec chmod 750 {} +</span>: Accès restreint au groupe.</li>
-			<li><span class="stabilo_noir">find /web -type d -exec chmod 755 {} +</span>: Accès public (si nécessaire).</li>
+			<li><span class="stabilo_noir">find /web -type d -exec chmod 750 {} +</span>: accès restreint au <b>g</b>roupe seul (accès minimaliste).</li>
+			<li><span class="stabilo_noir">find /web -type d -exec chmod 755 {} +</span>: accès public (si nécessaire, accès maximaliste).</li>
 		</ul>
 
 		<br>
@@ -88,16 +89,22 @@
 		<h4>&#9989; Bonnes pratiques pour les fichiers:</h4>
 		<p>Permissions recommandées pour les fichiers:</p>
 		<ul>
-			<li><span class="stabilo_noir">find /web -type f -exec chmod 640 {} +</span>: Lecture seule pour <b>o</b>.</li>
-			<li><span class="stabilo_noir">find /web -type f -exec chmod 644 {} +</span>: Lecture publique (si nécessaire).</li>
+			<li><span class="stabilo_noir">find /web -type f -exec chmod 640 {} +</span>: lecture seule pour au <b>g</b>roupe seul (accès minimaliste).</li>
+			<li><span class="stabilo_noir">find /web -type f -exec chmod 644 {} +</span>: lecture publique (si nécessaire, accès maximaliste).</li>
 		</ul>
-		<p>Pour les fichiers sensibles: <span class="stabilo_noir">chmod 600</span> (accès réservé à <b>u</b>).</p>
+		<p>Pour les fichiers sensibles: <span class="stabilo_noir">chmod 600</span> (accès réservé à <b>u</b> seul).</p>
 
-		<br>
+		<br><br>
 		<h4>&#10060; À éviter pour les fichiers:</h4>
 		<div class="note" style="background-color: #ffebee; border-left: 4px solid #f44336;">
-			<p>À éviter: <span class="stabilo_noir"><s>chmod -R 444</s></span>: <b>Risque de verrouillage</b> (impossible de modifier le fichier).</p>
+			<p>À éviter: <span class="stabilo_noir"><s>chmod -R 444</s></span>: <b>risque de verrouillage</b> (impossible de modifier le fichier).</p>
 		</div>
+
+		<br><br>
+		<h4>&#128161; Dernier rappel</h4>
+		<p>
+			le fichier dit de la "base de données mySQL" est localisé ailleurs, généralement sous <span class="stabilo_gris">/var/...</span>, i.e. à un emplacement où l'on a aucun droit d'accès: bref, on ne s'y occupe que de droits CRUD pour l'admin (=~u) et pour les autres-others (=~o).
+		</p>
 
 		<!-- Composante {fast-}CGI rassemblée -->
 		<br><br>
@@ -127,11 +134,11 @@
 			<ul>
 				<li>
 					<span class="stabilo_noir"><code>chmod 750 public_html/cgi-bin/your-script.elf</code></span>:
-					Autorise l'exécution par <code>u</code> et <code>g</code> (ex: <code>www-data</code>), tout en restreignant l'accès aux autres (<code>o</code>).
+					autorise l'exécution par <code>u</code> et <code>g</code> (ex: <code>www-data</code>), tout en restreignant l'accès aux autres (<code>o</code>).
 				</li>
 				<li>
 					<span class="stabilo_noir"><code>chmod 755 public_html/cgi-bin/your-script.elf</code></span>:
-					Permet une exécution publique (si nécessaire pour un accès web).
+					permet une exécution publique (si nécessaire pour un accès web).
 				</li>
 			</ul>
 
@@ -144,19 +151,19 @@
 
 			<h4>&#9989; Bonnes pratiques {fast-}CGI</h4>
 			<ul>
-				<li><span class="stabilo_noir">chmod 750</span>: Exécution restreinte (recommandé pour la sécurité).</li>
-				<li><span class="stabilo_noir">chmod 755</span>: Exécution publique (si accès web requis).</li>
+				<li><span class="stabilo_noir">chmod 750</span>: exécution restreinte (recommandé pour la sécurité).</li>
+				<li><span class="stabilo_noir">chmod 755</span>: exécution publique (si accès web requis).</li>
 			</ul>
 
 			<h4>&#10060; À éviter absolument</h4>
 			<div class="note" style="background-color: #ffebee; border-left: 4px solid #f44336;">
-				<p>À éviter: <span class="stabilo_noir"><s>chmod 777</s></span>: Risque majeur de sécurité (accès total à tous les utilisateurs).</p>
+				<p>À éviter: <span class="stabilo_noir"><s>chmod 777</s></span>: risque majeur de sécurité (accès total à tous les utilisateurs).</p>
 			</div>
 
 			<h4>&#128257; Héritage des permissions</h4>
 			<p>Pour propager les permissions aux sous-répertoires:</p>
 			<ul>
-				<li><span class="stabilo_noir">chmod g+s /web</span>: Active l'héritage des droits pour le groupe.</li>
+				<li><span class="stabilo_noir">chmod g+s /web</span>: active l'héritage des droits pour le groupe.</li>
 			</ul>
 
 			<h4>&#128161; Note pour OpenCart</h4>
