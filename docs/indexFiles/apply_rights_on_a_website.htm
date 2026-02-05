@@ -31,7 +31,7 @@
 		<p>Les permissions\privilèges sont donnés aux listes de contrôle d'accès (dites "ACL") via des droits "ugo", qui doivent être attribués à l'arborescence des répertoires et fichiers d'un site web, selon leur fonctionnalité. Certains fichiers sont exécutables, d'autres uniquement lisibles. La gestion des droits sous Linux n'est pas intuitive et nécessite une approche méthodique.</p>
 
 		<br><br><br>
-		<h3>Mnémotechnie: <span class="acronyme">UGO</span> est mon ami pour attribuer des droits!</h3>
+		<h3>Mnémotechnie: <span class="acronyme">Ugo</span> est mon ami pour attribuer des droits!</h3>
 		<br>
 		<p>Dans la logique "ugo", chaque lettre représente un groupe:</p>
 		<ul>
@@ -71,7 +71,7 @@
 		</ol>
 
 		<br><br>
-		<h4>&#10004; Bonnes pratiques pour les répertoires:</h4>
+		<h4>&#9989; Bonnes pratiques pour les répertoires:</h4>
 		<p>Permissions recommandées pour les répertoires (navigation, listage):</p>
 		<ul>
 			<li><span class="stabilo_noir">find /web -type d -exec chmod 750 {} +</span>: Accès restreint au groupe.</li>
@@ -85,7 +85,7 @@
 		</div>
 
 		<br><br>
-		<h4>&#10004; Bonnes pratiques pour les fichiers:</h4>
+		<h4>&#9989; Bonnes pratiques pour les fichiers:</h4>
 		<p>Permissions recommandées pour les fichiers:</p>
 		<ul>
 			<li><span class="stabilo_noir">find /web -type f -exec chmod 640 {} +</span>: Lecture seule pour <b>o</b>.</li>
@@ -99,80 +99,68 @@
 			<p>À éviter: <span class="stabilo_noir"><s>chmod -R 444</s></span>: <b>Risque de verrouillage</b> (impossible de modifier le fichier).</p>
 		</div>
 
+		<!-- Composante {fact-}CGI rassemblée -->
 		<br><br>
-		<div class="section">
-			<h4>Curieux? Alors voici un complément concernant la pose des droits d'exécution pour les scripts CGI/FastCGI, qui ont un bit d'eXécution, en sus des autres cas:</h4>
+		<div class="cgi-documentation" style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+			<h2>&#128220; Documentation <span class="acronyme">{fact-}CGI</span>: cas particulier des scripts <span class="acronyme">CGI\FastCGI</span>, si d'aventure ou par curiosité...:</h2>
 
+			<h3>&#10070; Pourquoi les scripts <span class="acronyme">CGI\FastCGI</span> sont-ils différents?</h3>
 			<p>
-				Pour qu'un script <strong>CGI</strong> ou <strong>FastCGI</strong> soit exécutable par le serveur web (comme Apache ou Nginx sous Linux), il est <span class="stabilo_noir"><strong>obligatoire</strong></span> que son <strong>bit d'exécution</strong> (<code>x</code>) soit activé dans les permissions.
-				Cela signifie que la valeur octale des droits doit inclure <strong>au moins <code>1</code></strong> (pour <code>x</code>), généralement combinée avec les droits de lecture (<code>r</code>) et d'écriture (<code>w</code>) pour le propriétaire (<code>u</code>).
+				Les scripts <strong>CGI</strong> et <strong>FastCGI</strong> ne sont ni des fichiers <code>.htm</code> ni des fichiers <code>.php</code>. Leur exécution dépend du <strong>bit d'exécution</strong> (<code>x</code>) dans les permissions Linux, car ils sont <strong>compilés ou interprétés dynamiquement</strong> par le serveur web (Apache ou Nginx).
 			</p>
 
+			<h4>&#128295; Bit d'exécution obligatoire</h4>
 			<p>
-				<strong>Exemples de commandes:</strong>
+				Pour qu'un script CGI\FastCGI soit exécutable, il est <span class="stabilo_noir"><strong>obligatoire</strong></span> que son <strong>bit d'exécution</strong> (<code>x</code>) soit activé. La valeur octale des droits doit inclure <strong>au moins <code>1</code></strong> (pour <code>x</code>), généralement combinée avec <code>r</code> et <code>w</code> pour le propriétaire (<code>u</code>).
 			</p>
+
+			<h4>&#128221; Exemples de commandes</h4>
 			<ul>
 				<li>
 					<span class="stabilo_noir"><code>chmod 750 public_html/cgi-bin/your-script.elf</code></span>:
-					Autorise l'exécution par le propriétaire (<code>u</code>) et le groupe (<code>g</code>, souvent <code>www-data</code>), tout en restreignant l'accès aux autres utilisateurs (<code>o</code>).
+					Autorise l'exécution par <code>u</code> et <code>g</code> (ex: <code>www-data</code>), tout en restreignant l'accès aux autres (<code>o</code>).
 				</li>
 				<li>
 					<span class="stabilo_noir"><code>chmod 755 public_html/cgi-bin/your-script.elf</code></span>:
-					Permet une exécution publique (nécessaire si le script doit être accessible depuis le web).
+					Permet une exécution publique (si nécessaire pour un accès web).
 				</li>
 			</ul>
 
 			<div class="note">
 				<p>
-					<strong>Pourquoi est-ce nécessaire?</strong><br>
-					Le bit <code>x</code> (<code>1</code>) indique au système que le fichier est <strong>exécutable</strong>. Sans ce bit, le serveur web refusera de lancer le script, même si les droits de lecture (<code>r</code>) sont accordés.
+					<strong>Pourquoi est-ce critique?</strong><br>
+					Sans le bit <code>x</code>, le serveur web refusera de lancer le script, même avec des droits de lecture (<code>r</code>).
 				</p>
 			</div>
 
-			<p>
-				<strong>Bonnes pratiques:</strong>
-			</p>
+			<h4>&#9989; Bonnes pratiques {fact-}CGI</h4>
 			<ul>
-				<li>
-					&#10060; À éviter: <span class="stabilo_noir"><s><strong>chmod 777</strong></s></span>: cela expose le script à des risques de sécurité majeurs.
-				</li>
-				<li>
-					<strong>Appliquez les droits récursivement</strong> aux répertoires parents si nécessaire:
-					<pre><code>chmod 755 /public_html/cgi-bin/  # Pour le répertoire
-chmod 750 /public_html/cgi-bin/your-script.elf  # Pour le script</code></pre>
-				</li>
-				<li>
-					<strong>Vérifiez les permissions</strong> avec <code>ls -l</code>:
-					Le résultat doit afficher <code>-rwxr-xr--</code> (pour <code>750</code>) ou <code>-rwxr-xr-x</code> (pour <code>755</code>).
-				</li>
+				<li><span class="stabilo_noir">chmod 750</span>: Exécution restreinte (recommandé pour la sécurité).</li>
+				<li><span class="stabilo_noir">chmod 755</span>: Exécution publique (si accès web requis).</li>
 			</ul>
 
+			<h4>&#10060; À éviter absolument</h4>
+			<div class="note" style="background-color: #ffebee; border-left: 4px solid #f44336;">
+				<p>À éviter: <span class="stabilo_noir"><s>chmod 777</s></span>: Risque majeur de sécurité (accès total à tous les utilisateurs).</p>
+			</div>
+
+			<h4>&#128257; Héritage des permissions</h4>
+			<p>Pour propager les permissions aux sous-répertoires:</p>
+			<ul>
+				<li><span class="stabilo_noir">chmod g+s /web</span>: Active l'héritage des droits pour le groupe.</li>
+			</ul>
+
+			<h4>&#128161; Note pour OpenCart</h4>
 			<div class="note" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
 				<p>
-					<strong>Note pour OpenCart:</strong><br>
-					Si vos scripts CGI interagissent avec des modules personnalisés (ex: dans <code>/system/library/</code>), assurez-vous que le groupe (<code>g</code>) soit bien <code>www-data</code> pour éviter les conflits de permissions avec Apache.
+					Si vos scripts CGI interagissent avec des modules OpenCart (ex: <code>/system/library/</code>), vérifiez que le groupe (<code>g</code>) est <code>www-data</code> pour éviter les conflits avec Apache.
 				</p>
 			</div>
 		</div>
 
-		<br><br>
-		<h4>&#10004; Bonnes pratiques pour les scripts CGI\FastCGI:</h4>
-		<p>Les scripts doivent avoir le bit d'exécution (<code>x</code>):</p>
-		<ul>
-			<li><span class="stabilo_noir">chmod 750 public_html/cgi-bin/your-script.elf</span>: Exécution restreinte.</li>
-			<li><span class="stabilo_noir">chmod 755 public_html/cgi-bin/your-script.elf</span>: Exécution publique (si nécessaire).</li>
-		</ul>
-
-		<br>
-		<h4>Héritage des permissions:</h4>
-		<p>Pour appliquer les permissions du répertoire parent aux sous-répertoires:</p>
-		<ul>
-			<li><span class="stabilo_noir">chmod g+s /web</span>: Active l'héritage des droits pour le groupe.</li>
-		</ul>
-
 		<br><br><br>
 		<h3>À savoir:</h3>
-		<p>Sous Linux, une ACL est une combinaison "ugo". Un fichier\dossier ne peut appartenir qu'à <b>un seul groupe</b> et <b>une seule ACL</b> à la fois, contrairement à MS-Windows.</p>
+		<p>Sous Linux, une ACL est une combinaison "ugo". Un fichier/dossier ne peut appartenir qu'à <b>un seul groupe</b> et <b>une seule ACL</b> à la fois, contrairement à MS-Windows.</p>
 
 		<br><br><br>
 		<label id="REFERENCES" style="font-size: small;">
