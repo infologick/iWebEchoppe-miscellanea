@@ -4,8 +4,6 @@
 	--main-color: #fefefe; /* proche blanc */
 }
 
-
-
 a:link {text-decoration: none; background-color: #ffffff95 !important; color: #0000FF; font-family: "Time New Roman", Arial, Helvetica; font-size: 12pt; font-style: italic !important}
 a:visited {color: #0000FF; font-style: italic !important;}
 a:hover {background-color: #ff6666 !important; text-decoration: underline; color: #FF000; font-size: 12pt; font-style: italic !important;}
@@ -134,6 +132,12 @@ area {
 
 .stabilo_gris {
 	background-color: dimgray !important;
+	color: black;
+	padding-left: 0px !important;/* suppr. pad pour place img de jQuery.validate.css */
+}
+
+.stabilo_yellowgreen, .stabilo_yellow, .stabilo_lime {
+	background-color: #588947;
 	color: black;
 	padding-left: 0px !important;/* suppr. pad pour place img de jQuery.validate.css */
 }
@@ -281,4 +285,45 @@ h1, h2, h3 {
 	color: black;
 }
 
+pre {
+	background-color: --main-background-color;
+	padding: 10px;
+	border-radius: 5px;
+	overflow-x: auto;
+}
 
+code {
+	font-family: monospace;
+	background-color: #000;
+	padding: 2px 5px;
+	border-radius: 3px;
+}
+
+.note {
+	background-color: --main-background-color;
+	border-left: 4px solid #ffd600;
+	padding: 10px;
+	margin: 15px 0;
+}
+
+.contact {
+	background-color: --main-background-color;
+	border-left: 4px solid #2e7d32;
+	padding: 10px;
+	margin: 15px 0;
+}
+
+.acronyme {
+	font-family: courrier !important;
+	padding-left: 0px !important;/* anti-padding de jQuery-validate */
+}
+
+PRE.LC {
+	font-weight: bold;
+	background-color: --main-background-color;
+	color: --main-color;
+	border-width: thin;
+	padding: 3px;
+	border-style: outset;
+	border-style: solid;
+}

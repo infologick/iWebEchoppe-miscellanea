@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
-		<title>extension «iWebEchoppe miscellanea» pour Opencart: étape 1 de son module «Base des tests»</title>
+		<title>extension «iWebEchoppe miscellanea» pour Opencart: permissions\droits sous Linu</title>
 		<meta name="description" content="module «Base des tests» de l'extension «iWebEchoppe miscellanea»">
 		<meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 "/>
 		<meta http-equiv="Content-Language" content="fr" />
@@ -27,23 +27,23 @@
 	<header></header>
 
 <br><br><br>
-<h1>Aide pour résoudre des problèmes de permissions\droits.</h1>
+<h1>Aide pour résoudre des problèmes de permissions\droits (sous Linux).</h1>
 
 
 
 <br><br><br>
 <h3>Introduction:</h3>
 <br>
-Des permissions\privilèges sont donnés aux listes de cntrôle d'accès dites "ACL" via des droits dits "ugo", droits pouvant\devant être ajoutés à l'arborescence émergée des répertoires et fichiers d'un site web, selon la fonction d'utilisté des fichiers. 
+Des permissions\privilèges sont donnés aux listes de contrôle d'accès (dites "ACL") via des droits dits "ugo", droits pouvant\devant être ajoutés à l'arborescence émergée des répertoires et fichiers d'un site web, selon la fonction d'utilisté des fichiers. 
 Certains fichiers sont des programmes et s'exécutent, tandis que d'autres fichiers se lisent seulement, si tant est que ces dits fichiers ont déjà été créé sur la machine considérée. 
 La pose de droits sous Linux n'est pas un concept simple, immédiat. Ce document tente de résumé son étude par Ugo.
 
 
 
 <br><br><br>
-<h3>Mnémotechnie: Ugo est mon ami pour m'aider à attribuer des droits!</h3>
+<h3>Mnémotechnie: <span class="acronyme">Ugo</span> est mon ami pour m'aider à attribuer des droits!</h3>
 <br>
-Dans la logique "ugo", chaque lettre rerésente un groupe (il y en a 3) et signifie:<br>
+Dans la logique "ugo", chaque lettre représente un groupe (il y en a 3, à affecter avec les dits droits). Plus précisément, chaque lettre-groupe signifie:<br>
 - l'administrateur du site doit être <b>u</b>, celui qui est en train de créer\à créé de façon <u>u</u>nique la sujetion étudiéee (un dossier, un fichier).<br>
 - <b>g</b> doit être le groupe-logiciel. Par exemple, "www-data" est le célèbre nom du groupe qui informe que c'est un dossier ou un fichier utilisé par le logiciel Apache (un serveur HTTP).<br>
 - <b>o</b> sont les internautes, "les autres de l'internet" qui ne sont ni dans "u", ni dans "g".<br>
@@ -51,9 +51,9 @@ Dans la logique "ugo", chaque lettre rerésente un groupe (il y en a 3) et signi
 
 
 <br><br><br>
-<h3>Chaque droit accordé à l''un des 3 groupes mis sur un dossier ou un fichier, est accordé avec un poids:</h3>
+<h3>Chaque droit accordé à l'un des 3 groupes, droit appliqué sur un dossier ou un fichier, est accordé avec un poids défini par un chiffre:</h3>
 <br>
-En politique des droits (permissions) sur les fichiers et dossiers sous Linux, le chiffre 7 maximum affectable est obtenu en additionnant les valeurs des permissions de base attribuées à un utilisateur, un groupe-locgiciel ou les autres de l'internet. 
+En politique des droits (permissions) sur les fichiers et dossiers sous Linux, le chiffre 7 (maximum permis possible affectable), est obtenu en additionnant les valeurs des permissions de base attribuées à un utilisateur, un groupe-locgiciel ou les autres de l'internet. 
 Voici les valeurs des permissions de base:<br>
 - Lecture (r): 4<br>
 - Écriture (w): 2<br>
@@ -65,16 +65,19 @@ car la navigation seule au sein des dossiers demande ce 4. Donc, en web, les aff
 
 
 <br><br><br>
-<h3>D'après "Ugo", sur qui, comment et sur quoi attribuer des droits?</h3>
+<h3>D'après <span "class="acronyme">Ugo</span>", sur qui, comment et sur quoi attribuer des droits?</h3>
 <br>
 <u>Pré-requis:</u><br>
-- l'administrateur du site (celui qui se connecte via FTP) s'appelle mettons <i>Jean</i>.<br>
+- l'administrateur du site (celui qui se connecte via FTP) s'appelle, mettons, <i>Jean</i>.<br>
 - pour information, beaucoup d'hébergeurs mettent à disposition des outils de transfert de fichiers qui font le même travail que FileZilla (outil le plus connu pour transférer et gérer des droits sur des dossiers\fichiers). 
-Ainsi, IK&ast; conseille de le faire avec l'outil FTP manager, et donc tout peut se faire avec IK-FTP gestionnaire\manager. 
-De même OVH&ast; propose dans sa console d'administration, un onglet FTP-SSH (SSH = session putTy i.e. connexion à une machine lointaine comme si l'on était devant elle et où l'on peut y lancer des commandes en mode bash du shell, 
-e.g. telnet sous MS-Windows) où l'on peut cliquer sur un lien menant vers le gestionnaire\gestionnaire\manager de fichiers. Etc&ast;.<br>
-- la cmd Linux <span class="stabilo_noir">chgmod</span> s'applique selon sa cible, sa cible étant un répertoire (de façon récursive ou pas) précis, ou un fichier précis. 
-Si l'on doit lancer beaucoup de <span class="stabilo_noir">chgmod</span>, il est plus facile de l'utiliser avec un pipelinage bash comme: <span class="stabilo_noir">find {files|directoies} + exec chgmod</span>.<br>
+Ainsi, à titre d'exemples, IK *[1] conseille de le faire avec l'outil FTP manager, et donc tout peut se faire avec IK-FTP gestionnaire\manager. 
+De même, OVH *[1] propose dans sa console d'administration, un onglet FTP-SSH (SSH = couche SSL over telnet (telnet est un outil du système d'exploitation informatique MS-Windows) = 
+session dite "putTy" (du nom du logiciel le plus connu assurant ce type de communication sous Lunix), 
+i.e. un protocole de communication permettant une connexion à une machine lointaine et ce, 
+comme si l'on était devant elle, assis(e) devant sa console de commandes d'ordres Bash du Shell de Linux), onglet FTP-SSH donc souvent présent chez les hébergeurs internet 
+d'où l'on peut cliquer sur un lien menant vers un gestionnaire\manager de fichiers, une console d'administration à distance, etc&ast;.<br>
+- la cmd Linux <span class="stabilo_noir">chgmod</span> s'applique selon sa cible, cible étant un répertoire (de façon récursive ou pas) précis, ou un fichier précis. 
+Si l'on doit lancer beaucoup de <span class="stabilo_noir">chgmod</span>, il est plus facile de l'utiliser avec un "pipelinage" Bash comme ceci: <span class="stabilo_noir">find {files|directoies} + exec chgmod</span>.<br>
 <br>
 Il convient de faire, dans l'ordre:<br>
 → changer le user-owner sur toute l'arborescence émergée, comme étant l'administrateur physique (appelé Jean) i.e. lancer un <span class="stabilo_noir">chown -R Jean /web</span>, 
@@ -118,8 +121,8 @@ Dit autrement un dossier ou un fichier ne peut appartenir qu'à une seule ACL. C
 
 
 <br><br><br>
-		<label id="REFERENCES" style="font-size: small;">&ast;
-			[1]: IK=InfoManiak; OVH="On Vous Héberge", cgiwebhost=hébergement de fichiers *.cgi <b>compilés</b> permis, etc = d'autres hébergeurs<br>
+		<label id="REFERENCES" style="font-size: small;">
+			*[1]: IK=InfoManiak; OVH="On Vous Héberge", cgiwebhost=hébergement de fichiers *.cgi <b>compilés</b> permis, etc = d'autres hébergeurs<br>
 		</label>
 		<aside></aside>
 		<footer></footer>
