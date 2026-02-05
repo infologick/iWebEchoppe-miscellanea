@@ -99,14 +99,23 @@
 			<p>À éviter: <span class="stabilo_noir"><s>chmod -R 444</s></span>: <b>Risque de verrouillage</b> (impossible de modifier le fichier).</p>
 		</div>
 
-		<!-- Composante {fact-}CGI rassemblée -->
+		<!-- Composante {fast-}CGI rassemblée -->
 		<br><br>
 		<div class="cgi-documentation" style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
-			<h2>&#128220; Documentation <span class="acronyme">{fact-}CGI</span>: cas particulier des scripts <span class="acronyme">CGI\FastCGI</span>, si d'aventure ou par curiosité...:</h2>
+			<h2>&#128220; Documentation <span class="acronyme">{fast-}CGI</span>: cas particulier des scripts <span class="acronyme">CGI\FastCGI</span>:</h2>
+
+			<p>
+				Ce paragraphe est juste un complément d'informatin pour ceux dont la curiosité à propos des droits Ugo a été éveillée. 
+				Pour parfaire cette culture générale des droits, ce paragraphe explique les droits concernant ce type de fichiers CGI\FastCGI. 
+				<span class="stabilo_rouge">Pour faire fonctionner Opencart et ses extensions, la connaissance des fichiers CGI\FastCGI est hors sujet (pour autant que je sache et jusqu'à présent).
+			</p>
 
 			<h3>&#10070; Pourquoi les scripts <span class="acronyme">CGI\FastCGI</span> sont-ils différents?</h3>
 			<p>
-				Les scripts <strong>CGI</strong> et <strong>FastCGI</strong> ne sont ni des fichiers <code>.htm</code> ni des fichiers <code>.php</code>. Leur exécution dépend du <strong>bit d'exécution</strong> (<code>x</code>) dans les permissions Linux, car ils sont <strong>compilés ou interprétés dynamiquement</strong> par le serveur web (Apache ou Nginx).
+				Les scripts <strong>CGI</strong> et <strong>FastCGI</strong> ne sont ni des fichiers <code>.htm</code> ni des fichiers <code>.php</code>. 
+				Ce sont des fichiers binaires compilés (écrits avec par ex. avec Lazarus + (Qt ou GTK), ou alors MSEide + (MSEgui ou fpGUI) si, comme moi, 
+				vous ne connaissez le free-Pascal objet ^^), fichiers qui produisent leur propre code HTML: ils n'ont pas besoin d'être interprétés par l'interpréteur de code PHP qui transforme PHP en pages HTML, donc. 
+				Leur exécution dépend du <strong>bit d'exécution</strong> (<code>x</code>) dans les permissions Linux, car ils sont <strong>compilés ou interprétés dynamiquement</strong> par le serveur web (Apache ou Nginx).
 			</p>
 
 			<h4>&#128295; Bit d'exécution obligatoire</h4>
@@ -133,7 +142,7 @@
 				</p>
 			</div>
 
-			<h4>&#9989; Bonnes pratiques {fact-}CGI</h4>
+			<h4>&#9989; Bonnes pratiques {fast-}CGI</h4>
 			<ul>
 				<li><span class="stabilo_noir">chmod 750</span>: Exécution restreinte (recommandé pour la sécurité).</li>
 				<li><span class="stabilo_noir">chmod 755</span>: Exécution publique (si accès web requis).</li>
