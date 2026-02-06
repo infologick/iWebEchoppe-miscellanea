@@ -33,7 +33,7 @@
 		<nav style="background-color: dimgray;"><!-- DÉBUT navigateur -->
 			<div style="text-align: center; margin: 0 auto;">
 				<a href="./index.htm">⟳ Page d'accueil de l'extension « iWebEchoppe miscellanea »</a>
-				<a href="./01-tests-base/index.htm">→ Index du module « Base des tests »</a>
+				<a href="./01-tests-base/index.htm">→ Index de l'onglet « Base des tests »</a>
 			</div>
 		</nav><!-- FIN navigateur -->
 
@@ -43,7 +43,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cette extension « iWebEchoppe miscellanea » est une extension de fonctionalités de « Opencart ». Opencart est une solution de commerce électronique.<br>
 Cette extension est livrée avec les localisations linguistiques corrspondantes aux codes "en-gb" et "fr-fr".<br>
-Cette extension se divise elle-même en un sous-module nommée « Base des tests ».<br><br>
+Cette extension se divise elle-même en un sous-onglet nommée « Base des tests ».<br><br>
 
 
 <br><br><br>
@@ -54,13 +54,20 @@ L'éditeur de cette extension est la société « Infologick ».<br>
 
 
 <br><br><br>
-<h3>Recommandations</h3>
+<h3>Recommandations et pré-requis</h3>
 <label id="RECOMMANDATION_BEFORE_INSTALLATION">&nbsp;</label>
 • faire une copie de sauvegarde du votre code source et de la base de données associée à votre version d'Opencart où vous voulez installer cette extension et ce, 
 au moyen des extensions commerciales ou libres qui sont dévolues à ces tâches dans Opencart. 
 A minima, <span class="stabilo_jaune">sauvegardez par un copié-collé manuel votre dossier où est installé Opencart sur votre serveur Web puis exportez votre base de données liée à Opencart depuis un outil comme PhpMyAdmin.</span><br>
 • depuis la panneau d'administration dans Opencart, lancez le téléchargement de cette extension «iWebEchoppe miscellanea» (iWebEchoppe.ocmod.zip) puis 
-cliquez sur le bouton pour l'y installer dedans en suivant les instructions jusqu'au bout.<br>
+cliquez sur le bouton pour l'y installer dedans en suivant les instructions jusqu'au bout.
+<br><br>
+<u>Pré-requis pout tous les onglets de cette extension:</u><br>
+&bull;&nbsp;un Opencart installé et fonctionnel: la <span class="stabilo_orange">base installée</span> est considérée par cette extension comme étant, obligatoirement, considérée comme étant celle de <span class="stabilo_orange">Production</span>.<br>
+&bull;&nbsp;la base de données installée doit être "commercialement" nommée "mySQL" ou "mariaDb" (si votre base est "MS-SQL server" ou "PostgreSSL, etc, alors cette extension ne pourra pas fonctionner et encore moins être mise à jour).<br>
+&bull;&nbsp;l'extension PHP nommée "MySQLi" (subséquente à l'originelle nommée "MySQL" mais antérieur à "PDO" pour mySQL): c'est avec elle que se font les mises à jour de cette extension.<br>
+&bull;&nbsp;l'extension PHP nommée "mPDO": c'est avec elle que cette extension fait tout (les requêtes CRUD, hors mise à jour de la base de données, donc).<br>
+&bull;&nbsp;dit autrement, il faut les extension PHP nommée "MySQLi" et nommé "PDO".<br>
 <br>
 
 
