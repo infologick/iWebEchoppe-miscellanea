@@ -81,7 +81,7 @@
 
 		<br>
 		<h4>&#10060; À éviter pour les répertoires:</h4>
-		<div class="note" style="background-color: #ffebee; border-left: 4px solid #f44336;">
+		<div class="note" style="border-left: 4px solid #f44336;">
 			<p>À éviter: <span class="stabilo_noir"><s>chmod -R 555</s></span>: <b>Risque de verrouillage</b> (navigation impossible sans droits <code>x</code>).</p>
 		</div>
 
@@ -96,7 +96,7 @@
 
 		<br><br>
 		<h4>&#10060; À éviter pour les fichiers:</h4>
-		<div class="note" style="background-color: #ffebee; border-left: 4px solid #f44336;">
+		<div class="note" style="border-left: 4px solid #f44336;">
 			<p>À éviter: <span class="stabilo_noir"><s>chmod -R 444</s></span>: <b>risque de verrouillage</b> (impossible de modifier le fichier).</p>
 		</div>
 
@@ -156,7 +156,7 @@
 			</ul>
 
 			<h4>&#10060; À éviter absolument</h4>
-			<div class="note" style="background-color: #ffebee; border-left: 4px solid #f44336;">
+			<div class="note" style="border-left: 4px solid #f44336;">
 				<p>À éviter: <span class="stabilo_noir"><s>chmod 777</s></span>: risque majeur de sécurité (accès total à tous les utilisateurs).</p>
 			</div>
 
@@ -167,7 +167,7 @@
 			</ul>
 
 			<h4>&#128161; Note pour OpenCart</h4>
-			<div class="note" style="background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+			<div class="note" style="border-left: 4px solid #2196F3;">
 				<p>
 					Si vos scripts CGI interagissent avec des modules OpenCart (ex: <code>/system/library/</code>), vérifiez que le groupe (<code>g</code>) est <code>www-data</code> pour éviter les conflits avec Apache.
 				</p>
