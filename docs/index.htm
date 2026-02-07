@@ -56,18 +56,21 @@ L'éditeur de cette extension est la société « Infologick ».<br>
 <br><br><br>
 <h3>Recommandations et pré-requis</h3>
 <label id="RECOMMANDATION_BEFORE_INSTALLATION">&nbsp;</label>
-• faire une copie de sauvegarde du votre code source et de la base de données associée à votre version d'Opencart où vous voulez installer cette extension et ce, 
+• faire une copie de sauvegarde de votre code source et de la base de données associée à votre version d'Opencart où vous voulez installer cette extension et ce, 
 au moyen des extensions commerciales ou libres qui sont dévolues à ces tâches dans Opencart. 
 A minima, <span class="stabilo_jaune">sauvegardez par un copié-collé manuel votre dossier où est installé Opencart sur votre serveur Web puis exportez votre base de données liée à Opencart depuis un outil comme PhpMyAdmin.</span><br>
 • depuis la panneau d'administration dans Opencart, lancez le téléchargement de cette extension «iWebEchoppe miscellanea» (iWebEchoppe.ocmod.zip) puis 
 cliquez sur le bouton pour l'y installer dedans en suivant les instructions jusqu'au bout.
 <br><br>
-<u>Pré-requis pour tous les onglets de cette extension:</u><br>
-&bull;&nbsp;une version d'Opencart installé et fonctionnelle: la <span class="stabilo_orange">base installée</span> sera toujours considérée par cette extension comme étant, obligatoirement, la base de <span class="stabilo_orange">Production</span>.<br>
-&bull;&nbsp;la base de données installée doit être "commercialement" nommée "mySQL" ou "mariaDb" (si votre base est nommée "MS-SQL server" ou "PostgreSSL, etc, alors cette extension ne pourra pas fonctionner et encore moins être mise à jour).<br>
-&bull;&nbsp;l'extension PHP nommée "MySQLi" (subséquente à l'originelle nommée "MySQL" mais antérieure à "PDO" pour mySQL): c'est avec elle que se font les mises à jour SQL liées à cette extension.<br>
-&bull;&nbsp;l'extension PHP nommée "mPDO": c'est avec elle que cette extension fait tout (les requêtes CRUD, hors mises à jour de la base de données liées à cette extension, donc).<br>
-&bull;&nbsp;dit autrement, cette extension Opencart nécessite les extensions PHP nommées "MySQLi" et "PDO".<br>
+<div class="note" style="border-left: 4px solid #f44336;">
+	<u>Pré-requis pour tous les onglets de cette extension:</u><br>
+	&bull;&nbsp;une version d'Opencart installé et fonctionnelle: la <span class="stabilo_orange">base installée</span> sera toujours considérée par cette extension comme étant, obligatoirement, la base de <span class="stabilo_orange">Production</span>. 
+	Elle correspond à la constante globale Opencart nommée <b>DB_DATABASE</b>.<br>
+	&bull;&nbsp;la base de données installée doit être "commercialement" nommée "mySQL" ou "mariaDb" (si votre base est nommée "MS-SQL server" ou "PostgreSSL, etc, alors cette extension ne pourra pas fonctionner et encore moins être mise à jour).<br>
+	&bull;&nbsp;l'extension PHP nommée "MySQLi" (subséquente à l'originelle nommée "MySQL" mais antérieure à "PDO" pour mySQL): c'est avec elle que se font les mises à jour SQL liées à cette extension.<br>
+	&bull;&nbsp;l'extension PHP nommée "mPDO": c'est avec elle que cette extension fait tout (les requêtes CRUD, hors mises à jour de la base de données liées à cette extension, donc).<br>
+	&bull;&nbsp;dit autrement, cette extension Opencart nécessite les extensions PHP nommées "MySQLi" et "PDO".<br>
+</div>
 <br>
 
 
