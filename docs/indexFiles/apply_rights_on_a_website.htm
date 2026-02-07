@@ -33,17 +33,20 @@
 		<br><br><br>
 		<h3>Mnémotechnie: <span class="acronyme">Ugo</span> est mon ami pour attribuer des droits!</h3>
 		<br>
-		<p>Dans la logique "ugo", chaque lettre représente un groupe:</p>
+		<p>Dans la logique "ugo", chaque lettre représente un groupe avec un rôle (et donc des privilèges) différent:</p>
 		<ul>
-			<li><b>u</b>: Administrateur du site (ex: <i>Jean</i>), créateur unique du fichier/dossier.</li>
-			<li><b>g</b>: Groupe-logiciel (ex: <code>www-data</code> pour Apache).</li>
-			<li><b>o</b>: Internautes ("les autres de l'internet").</li>
+			<li><b>u</b>: <b>U</b>ser-propriétaire\administrateur du site (ex.: <i>Jean</i>), créateur-propriétaire unique du fichier\dossier qu'il crée.</li>
+			<li><b>g</b>: <b>G</b>roupe-logiciel (ex.: <code>www-data</code>, pour Apache (Apache (le serveur web) s’exécute sous l’identité "www-data", sur les distributions Linux); "www-data" est à la fois un nom\compte <u>u</u>tilisateur et un nom de <b>g</b>roupe).</li>
+			<li><b>o</b>: <b>O</b>thers de l'internet, c'est-à-dire "les autres de l'internet"\internautes.</li>
 		</ul>
 
 		<br><br><br>
 		<h3>Valeurs des permissions de base:</h3>
 		<br>
-		<p>Les droits sont attribués selon une valeur octale:</p>
+		<p>Les droits sont attribués avec une valeur octale 
+		(la composition d'une somme, dont le maximum vaut 8), 
+		valeur octale résultant donc de la somme de trois composantes potentielles actionnelles applicables sur un fichier\dossier considéré, 
+		valeur qui permet de distinguer les privilèges qu'à chacun des trois groupes existant, chacun selon son rôle considéré sur la ressource fichier\dossier considéré:</p>
 		<ul>
 			<li>Lecture (r): <b>4</b></li>
 			<li>Écriture (w): <b>2</b></li>
@@ -176,7 +179,7 @@
 
 		<br><br><br>
 		<h3>À savoir:</h3>
-		<p>Sous Linux, une ACL est une combinaison "ugo". Un fichier/dossier ne peut appartenir qu'à <b>un seul groupe</b> et <b>une seule ACL</b> à la fois, contrairement à MS-Windows.</p>
+		<p>Sous Linux, une ACL est une combinaison "ugo". Un fichier\dossier ne peut appartenir qu'à <b>un seul groupe</b> et <b>une seule ACL</b> à la fois, contrairement à MS-Windows.</p>
 
 		<br><br><br>
 		<label id="REFERENCES" style="font-size: small;">
