@@ -35,9 +35,11 @@
 		<br>
 		<p>Dans la logique "ugo", chaque lettre représente un groupe avec un rôle (et donc des privilèges) différent:</p>
 		<ul>
-			<li><b>u</b>: <b>U</b>ser-propriétaire\administrateur du site (ex.: <i>Jean</i>), créateur-propriétaire unique du fichier\dossier qu'il crée.</li>
+			<li><b>u</b>: <b>U</b>ser-propriétaire\administrateur du site (ex.: <i>Jean</i>; mais ça pourrait être un logiciel comme <i>www-data</i> c'est-à-dire Apache). 
+			Le <u>user</u>-créateur-propriétaire compose ce groupe <b>u</b> à lui tout seul, pour chaque fichier\dossier qu'il crée pour son site.</li>
 			<li><b>g</b>: <b>G</b>roupe-logiciel (ex.: <code>www-data</code>, pour Apache (le serveur web) qui s’exécute sous l’identité "www-data", sur les distributions Linux; 
-			"www-data" est à la fois un nom de compte <b>u</b>tilisateur (Cf. ci-dessus) et aussi un nom de <b>g</b>roupe-logiciel, c'est-à-dire un groupe où l'on peut ajouter d'autres logiciels-services web publiant pour internet et ce, en sus d'Apache).</li>
+			"www-data" est à la fois un nom de compte <b>u</b>tilisateur (Cf. ci-dessus) et aussi un nom de <b>g</b>roupe-logiciel, 
+			c'est-à-dire un groupe où l'on peut y ajouter d'autres logiciels-services web publiant eux aussi pour internet et ce, en sus d'Apache, donc).</li>
 			<li><b>o</b>: <b>O</b>thers de l'internet, c'est-à-dire "les autres de l'internet" c'est-à-dire les internautes.</li>
 		</ul>
 
